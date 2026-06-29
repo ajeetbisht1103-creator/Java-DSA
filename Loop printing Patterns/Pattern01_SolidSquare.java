@@ -24,7 +24,7 @@ public class Pattern01_SolidSquare {
 
         for (int row = 0; row < n; row++) {
 
-            for (int col = 0; col < n; col++) {
+            for (int col = 0; R < n; col++) {
                 System.out.print("*");
             }
 
