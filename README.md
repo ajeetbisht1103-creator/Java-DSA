@@ -13,7 +13,7 @@ The code is written to be clean, beginner-friendly, and suitable for revision.
 - ✅ Pattern Printing
 - ✅ Basic Maths
 - ✅ Recursion
-- 🚧 Hashing (In Progress)
+- ✅Hashing (In Progress)
 
 ---
 
@@ -72,7 +72,7 @@ Java-DSA
 | Pattern Printing | ✅ Completed |
 | Basic Maths | ✅ Completed |
 | Recursion | ✅ Completed |
-| Hashing | 🚧 In Progress |
+| Hashing | ✅ Completed |
 
 ---
 
