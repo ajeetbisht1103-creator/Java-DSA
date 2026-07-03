@@ -23,7 +23,7 @@ The code is written to be clean, beginner-friendly, and suitable for revision.
 Java-DSA
 │
 ├── README.md
-├── 01-PatternPrinting
+├── Loop printing Patterns
 ├── 02-BasicMaths
 ├── 03-Recursion
 ├── 04-Hashing
