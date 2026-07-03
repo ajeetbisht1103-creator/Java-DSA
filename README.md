@@ -24,7 +24,7 @@ Java-DSA
 │
 ├── README.md
 ├── Loop printing Patterns
-├── 02-BasicMaths
+├── Basic Maths
 ├── 03-Recursion
 ├── 04-Hashing
 ```
