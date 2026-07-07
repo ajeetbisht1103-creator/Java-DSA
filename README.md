@@ -13,7 +13,7 @@ The code is written to be clean, beginner-friendly, and suitable for revision.
 - ✅ Pattern Printing
 - ✅ Basic Maths
 - ✅ Recursion
-- 🚧 Hashing (In Progress)
+- ✅Hashing 
 
 ---
 
@@ -23,10 +23,10 @@ The code is written to be clean, beginner-friendly, and suitable for revision.
 Java-DSA
 │
 ├── README.md
-├── 01-PatternPrinting
-├── 02-BasicMaths
-├── 03-Recursion
-├── 04-Hashing
+├── Loop printing Patterns
+├── Basic Maths
+├── Recursion
+├── Hashing
 ```
 
 ---
@@ -72,8 +72,8 @@ Java-DSA
 | Pattern Printing | ✅ Completed |
 | Basic Maths | ✅ Completed |
 | Recursion | ✅ Completed |
-| Hashing | 🚧 In Progress |
+| Hashing | ✅ Completed |
 
 ---
 
-⭐ This repository is continuously updated as I learn new DSA concepts.
+⭐ This repository is continuously updated as I learn new DSA concepts with time.
