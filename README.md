@@ -28,6 +28,7 @@ Java-DSA
 ├── Basic Maths
 ├── Recursion
 ├── Hashing
+├── Sorting
 ```
 
 ---
