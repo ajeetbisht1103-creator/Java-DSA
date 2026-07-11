@@ -67,14 +67,13 @@ Java-DSA
 
 ---
 
-## 📈 Progress
-
 | Topic | Status |
 |--------|--------|
 | Pattern Printing | ✅ Completed |
 | Basic Maths | ✅ Completed |
 | Recursion | ✅ Completed |
 | Hashing | ✅ Completed |
+| Sorting | ✅ Completed |
 
 ---
 
