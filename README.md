@@ -49,7 +49,7 @@ Java-DSA
 
 - Well-structured folder organization
 - One Java file per problem
-- Topic-wise README files
+- Dedicated README for every completed topic
 - Clean and readable code
 - Descriptive variable and method names
 - Time & Space Complexity included
