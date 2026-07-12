@@ -68,13 +68,15 @@ Java-DSA
 
 ---
 
-| Topic | Status |
-|--------|--------|
-| Pattern Printing | ✅ Completed |
-| Basic Maths | ✅ Completed |
-| Recursion | ✅ Completed |
-| Hashing | ✅ Completed |
-| Sorting | ✅ Completed |
+| Topic            | Status         |
+| ---------------- | -------------- |
+| Pattern Printing | ✅ Completed    |
+| Basic Maths      | ✅ Completed    |
+| Recursion        | ✅ Completed    |
+| Hashing          | ✅ Completed    |
+| Sorting          | ✅ Completed    |
+| Arrays           | 🚧 In Progress |
+
 
 ---
 
