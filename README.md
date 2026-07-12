@@ -30,7 +30,7 @@ Java-DSA
 ├── Recursion
 ├── Hashing
 ├── Sorting
-```
+├── Arrays
 
 ---
 
