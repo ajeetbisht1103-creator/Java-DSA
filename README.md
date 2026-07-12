@@ -13,8 +13,9 @@ The code is written to be clean, beginner-friendly, and suitable for revision.
 - ✅ Pattern Printing
 - ✅ Basic Maths
 - ✅ Recursion
-- ✅Hashing
+- ✅ Hashing
 - ✅ Sorting
+- 🚧 Arrays (In Progress)
 
 ---
 
