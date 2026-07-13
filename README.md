@@ -15,7 +15,7 @@ The code is written to be clean, beginner-friendly, and suitable for revision.
 - ✅ Recursion
 - ✅ Hashing
 - ✅ Sorting
-- 🚧 Arrays (In Progress)
+
 
 ---
 
