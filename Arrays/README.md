@@ -10,8 +10,7 @@ This folder contains Java implementations of fundamental array problems commonly
 ## 📌 Concepts Learned
 
 - Array Traversal
-- Linear Search
-- Time & Space Complexity Analysis
+- Finding Maximum and Minimum
 
 ## 💻 Language
 
