@@ -5,6 +5,7 @@ This folder contains Java implementations of fundamental array problems commonly
 ## 📚 Problems Covered
 
 - ✅ Largest Element in an Array
+- ⏳ Second Smallest and Second Largest Element
 
 ## 📌 Concepts Learned
 
