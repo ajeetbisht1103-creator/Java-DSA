@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Problem: Bubble Sort
  *
@@ -22,34 +24,26 @@
  * Space Complexity:
  * O(1)
  *
- * Stable:
- * Yes
+ * Stable:   Yes
+ * In-Place: Yes
  *
- * In-Place:
- * Yes
- *
- * Applications:
- * - Suitable for small datasets.
- * - Useful when the array is nearly sorted due to its early stopping optimization.
- *
- * Source:
- * Striver A2Z DSA Sheet
+ * Source: Striver A2Z DSA Sheet
  */
 
 public class BubbleSort {
 
     public static void bubbleSort(int[] arr) {
+        if (arr == null || arr.length <= 1) {
+            return;
+        }
 
         int n = arr.length;
 
-        for (int i = n - 1; i >= 0; i--) {
-
+        for (int i = n - 1; i > 0; i--) {
             boolean didSwap = false;
 
-            for (int j = 0; j <= i - 1; j++) {
-
+            for (int j = 0; j < i; j++) {
                 if (arr[j] > arr[j + 1]) {
-
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
@@ -64,25 +58,13 @@ public class BubbleSort {
         }
     }
 
-    public static void printArray(int[] arr) {
-
-        for (int element : arr) {
-            System.out.print(element + " ");
-        }
-
-        System.out.println();
-    }
-
     public static void main(String[] args) {
-
         int[] arr = {13, 46, 24, 52, 20, 9};
 
-        System.out.println("Before Sorting:");
-        printArray(arr);
+        System.out.println("Before Sorting: " + Arrays.toString(arr));
 
         bubbleSort(arr);
 
-        System.out.println("After Sorting:");
-        printArray(arr);
+        System.out.println("After Sorting:  " + Arrays.toString(arr));
     }
 }

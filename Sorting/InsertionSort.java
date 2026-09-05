@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Problem: Insertion Sort
  *
@@ -19,32 +21,23 @@
  * Average Case : O(N²)
  * Worst Case   : O(N²)
  *
- * Space Complexity:
- * O(1)
+ * Space Complexity: O(1)
+ * Stable:   Yes
+ * In-Place: Yes
  *
- * Stable:
- * Yes
- *
- * In-Place:
- * Yes
- *
- * Applications:
- * - Suitable for small datasets.
- * - Efficient for nearly sorted arrays.
- * - Used as the base case in advanced sorting algorithms like TimSort.
- *
- * Source:
- * Striver A2Z DSA Sheet
+ * Source: Striver A2Z DSA Sheet
  */
 
 public class InsertionSort {
 
     public static void insertionSort(int[] arr) {
+        if (arr == null || arr.length <= 1) {
+            return;
+        }
 
         int n = arr.length;
 
         for (int i = 1; i < n; i++) {
-
             int key = arr[i];
             int j = i - 1;
 
@@ -57,25 +50,13 @@ public class InsertionSort {
         }
     }
 
-    public static void printArray(int[] arr) {
-
-        for (int element : arr) {
-            System.out.print(element + " ");
-        }
-
-        System.out.println();
-    }
-
     public static void main(String[] args) {
-
         int[] arr = {7, 4, 1, 5, 3};
 
-        System.out.println("Before Sorting:");
-        printArray(arr);
+        System.out.println("Before Sorting: " + Arrays.toString(arr));
 
         insertionSort(arr);
 
-        System.out.println("After Sorting:");
-        printArray(arr);
+        System.out.println("After Sorting:  " + Arrays.toString(arr));
     }
 }

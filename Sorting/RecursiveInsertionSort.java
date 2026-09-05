@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Problem: Recursive Insertion Sort
  *
@@ -5,28 +7,28 @@
  * Sort an array using the Insertion Sort algorithm implemented recursively.
  *
  * Example:
- * Input:
- * {5, 4, 3, 2, 1}
- *
- * Output:
- * 1 2 3 4 5
+ * Input:  {5, 4, 3, 2, 1}
+ * Output: [1, 2, 3, 4, 5]
  *
  * Time Complexity:
  * Best Case    : O(N)
  * Average Case : O(N²)
  * Worst Case   : O(N²)
  *
- * Space Complexity:
- * O(N) (Recursive call stack)
+ * Space Complexity: O(N) - Recursive call stack
  */
 
 public class RecursiveInsertionSort {
 
-    /**
-     * Recursively sorts the array using Insertion Sort.
-     */
-    public static void insertionSort(int[] array, int currentIndex, int size) {
+    // Clean Public API
+    public static void insertionSort(int[] array) {
+        if (array == null || array.length <= 1) {
+            return;
+        }
+        insertionSortHelper(array, 0, array.length);
+    }
 
+    private static void insertionSortHelper(int[] array, int currentIndex, int size) {
         // Base case
         if (currentIndex == size) {
             return;
@@ -36,7 +38,6 @@ public class RecursiveInsertionSort {
 
         // Place the current element at its correct position
         while (previousIndex > 0 && array[previousIndex - 1] > array[previousIndex]) {
-
             int temporary = array[previousIndex - 1];
             array[previousIndex - 1] = array[previousIndex];
             array[previousIndex] = temporary;
@@ -45,29 +46,16 @@ public class RecursiveInsertionSort {
         }
 
         // Recursive call for the next element
-        insertionSort(array, currentIndex + 1, size);
+        insertionSortHelper(array, currentIndex + 1, size);
     }
 
     public static void main(String[] args) {
-
         int[] array = {5, 4, 3, 2, 1};
 
-        int size = array.length;
+        System.out.println("Before Sorting: " + Arrays.toString(array));
 
-        System.out.println("Before Sorting:");
+        insertionSort(array);
 
-        for (int number : array) {
-            System.out.print(number + " ");
-        }
-
-        insertionSort(array, 0, size);
-
-        System.out.println("\n");
-
-        System.out.println("After Sorting:");
-
-        for (int number : array) {
-            System.out.print(number + " ");
-        }
+        System.out.println("After Sorting:  " + Arrays.toString(array));
     }
 }

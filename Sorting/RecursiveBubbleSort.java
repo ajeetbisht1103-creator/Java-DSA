@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Problem: Recursive Bubble Sort
  *
@@ -5,68 +7,61 @@
  * Sort an array using the Bubble Sort algorithm implemented recursively.
  *
  * Example:
- * Input:
- * {13, 46, 24, 52, 20, 9}
- *
- * Output:
- * 9 13 20 24 46 52
+ * Input:  {13, 46, 24, 52, 20, 9}
+ * Output: [9, 13, 20, 24, 46, 52]
  *
  * Time Complexity:
- * Best Case    : O(N²)
+ * Best Case    : O(N) (with early exit optimization)
  * Average Case : O(N²)
  * Worst Case   : O(N²)
  *
- * Space Complexity:
- * O(N) (Recursive call stack)
+ * Space Complexity: O(N) - Recursive call stack
  */
 
 public class RecursiveBubbleSort {
 
-    /**
-     * Recursively sorts the array using Bubble Sort.
-     */
-    public static void bubbleSort(int[] array, int size) {
+    // Clean Public API
+    public static void bubbleSort(int[] array) {
+        if (array == null || array.length <= 1) {
+            return;
+        }
+        bubbleSortHelper(array, array.length);
+    }
 
-        // Base case
-        if (size == 1) {
+    private static void bubbleSortHelper(int[] array, int size) {
+        if (size <= 1) {
             return;
         }
 
-        // Move the largest element to its correct position
-        for (int index = 0; index <= size - 2; index++) {
+        boolean didSwap = false;
 
+        // Perform one pass and push largest element to the end
+        for (int index = 0; index < size - 1; index++) {
             if (array[index] > array[index + 1]) {
-
-                int temporary = array[index];
+                int temp = array[index];
                 array[index] = array[index + 1];
-                array[index + 1] = temporary;
+                array[index + 1] = temp;
+
+                didSwap = true;
             }
         }
 
-        // Recursive call for remaining elements
-        bubbleSort(array, size - 1);
+        // If no elements were swapped, array is already sorted
+        if (!didSwap) {
+            return;
+        }
+
+        // Recursive call for remaining unsorted portion
+        bubbleSortHelper(array, size - 1);
     }
 
     public static void main(String[] args) {
-
         int[] array = {13, 46, 24, 52, 20, 9};
 
-        int size = array.length;
+        System.out.println("Before Sorting: " + Arrays.toString(array));
 
-        System.out.println("Before Sorting:");
+        bubbleSort(array);
 
-        for (int number : array) {
-            System.out.print(number + " ");
-        }
-
-        bubbleSort(array, size);
-
-        System.out.println("\n");
-
-        System.out.println("After Sorting:");
-
-        for (int number : array) {
-            System.out.print(number + " ");
-        }
+        System.out.println("After Sorting:  " + Arrays.toString(array));
     }
 }

@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Problem: Merge Sort
@@ -8,88 +8,79 @@ import java.util.ArrayList;
  * the Divide and Conquer technique.
  *
  * Example:
- * Input:
- * {3, 2, 8, 5, 1, 4, 23}
- *
- * Output:
- * 1 2 3 4 5 8 23
+ * Input:  {3, 2, 8, 5, 1, 4, 23}
+ * Output: [1, 2, 3, 4, 5, 8, 23]
  *
  * Time Complexity:
  * Best Case    : O(N log N)
  * Average Case : O(N log N)
  * Worst Case   : O(N log N)
  *
- * Space Complexity:
- * O(N)
+ * Space Complexity: O(N)
  */
 
 public class MergeSort {
 
-    /**
-     * Merges two sorted halves of the array.
-     */
-    public static void merge(int[] array, int low, int mid, int high) {
-
-        ArrayList<Integer> temporaryArray = new ArrayList<>();
-
-        int left = low;
-        int right = mid + 1;
-
-        // Merge the two sorted halves
-        while (left <= mid && right <= high) {
-
-            if (array[left] <= array[right]) {
-                temporaryArray.add(array[left++]);
-            } else {
-                temporaryArray.add(array[right++]);
-            }
+    // Clean Public API
+    public static void mergeSort(int[] array) {
+        if (array == null || array.length <= 1) {
+            return;
         }
-
-        // Copy remaining elements from the left half
-        while (left <= mid) {
-            temporaryArray.add(array[left++]);
-        }
-
-        // Copy remaining elements from the right half
-        while (right <= high) {
-            temporaryArray.add(array[right++]);
-        }
-
-        // Copy merged elements back to the original array
-        for (int index = low; index <= high; index++) {
-            array[index] = temporaryArray.get(index - low);
-        }
+        mergeSortHelper(array, 0, array.length - 1);
     }
 
-    /**
-     * Recursively divides the array and sorts it.
-     */
-    public void mergeSort(int[] array, int low, int high) {
-
+    private static void mergeSortHelper(int[] array, int low, int high) {
         if (low >= high) {
             return;
         }
 
-        int mid = (low + high) / 2;
+        int mid = low + (high - low) / 2;
 
-        mergeSort(array, low, mid);
-        mergeSort(array, mid + 1, high);
+        mergeSortHelper(array, low, mid);
+        mergeSortHelper(array, mid + 1, high);
 
         merge(array, low, mid, high);
     }
 
-    public static void main(String[] args) {
+    private static void merge(int[] array, int low, int mid, int high) {
+        int[] temp = new int[high - low + 1];
 
+        int left = low;
+        int right = mid + 1;
+        int k = 0;
+
+        // Merge two sorted halves into temporary array
+        while (left <= mid && right <= high) {
+            if (array[left] <= array[right]) {
+                temp[k++] = array[left++];
+            } else {
+                temp[k++] = array[right++];
+            }
+        }
+
+        // Copy remaining elements from left half
+        while (left <= mid) {
+            temp[k++] = array[left++];
+        }
+
+        // Copy remaining elements from right half
+        while (right <= high) {
+            temp[k++] = array[right++];
+        }
+
+        // Copy merged elements back into original array
+        for (int i = 0; i < temp.length; i++) {
+            array[low + i] = temp[i];
+        }
+    }
+
+    public static void main(String[] args) {
         int[] array = {3, 2, 8, 5, 1, 4, 23};
 
-        MergeSort solution = new MergeSort();
+        System.out.println("Before Sorting: " + Arrays.toString(array));
 
-        solution.mergeSort(array, 0, array.length - 1);
+        mergeSort(array);
 
-        System.out.println("Sorted Array:");
-
-        for (int number : array) {
-            System.out.print(number + " ");
-        }
+        System.out.println("After Sorting:  " + Arrays.toString(array));
     }
 }

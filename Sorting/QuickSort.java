@@ -1,4 +1,6 @@
-`/**
+import java.util.Arrays;
+
+/**
  * Problem: Quick Sort
  *
  * Description:
@@ -6,11 +8,8 @@
  * the Divide and Conquer technique.
  *
  * Example:
- * Input:
- * {9, 4, 7, 3, 1}
- *
- * Output:
- * 1 3 4 7 9
+ * Input:  {9, 4, 7, 3, 1}
+ * Output: [1, 3, 4, 7, 9]
  *
  * Time Complexity:
  * Best Case    : O(N log N)
@@ -24,66 +23,51 @@
 
 public class QuickSort {
 
-    /**
-     * Recursively sorts the array using Quick Sort.
-     */
-    public static void quickSort(int[] array, int low, int high) {
+    // Clean Public API Entry Point
+    public static void quickSort(int[] array) {
+        if (array == null || array.length <= 1) {
+            return;
+        }
+        quickSortHelper(array, 0, array.length - 1);
+    }
 
+    private static void quickSortHelper(int[] array, int low, int high) {
         if (low < high) {
-
             int pivotIndex = partition(array, low, high);
 
-            quickSort(array, low, pivotIndex - 1);
-            quickSort(array, pivotIndex + 1, high);
+            quickSortHelper(array, low, pivotIndex - 1);
+            quickSortHelper(array, pivotIndex + 1, high);
         }
     }
 
-    /**
-     * Partitions the array around the pivot element.
-     */
-    public static int partition(int[] array, int low, int high) {
-
+    private static int partition(int[] array, int low, int high) {
         int pivot = array[high];
-
         int smallerElementIndex = low - 1;
 
         for (int currentIndex = low; currentIndex < high; currentIndex++) {
-
             if (array[currentIndex] <= pivot) {
-
                 smallerElementIndex++;
-
-                int temporary = array[currentIndex];
-                array[currentIndex] = array[smallerElementIndex];
-                array[smallerElementIndex] = temporary;
+                swap(array, currentIndex, smallerElementIndex);
             }
         }
 
-        int temporary = array[smallerElementIndex + 1];
-        array[smallerElementIndex + 1] = array[high];
-        array[high] = temporary;
-
+        swap(array, smallerElementIndex + 1, high);
         return smallerElementIndex + 1;
     }
 
-    public static void main(String[] args) {
+    private static void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
 
+    public static void main(String[] args) {
         int[] array = {9, 4, 7, 3, 1};
 
-        System.out.println("Before Sorting:");
+        System.out.println("Before Sorting: " + Arrays.toString(array));
 
-        for (int number : array) {
-            System.out.print(number + " ");
-        }
+        quickSort(array);
 
-        quickSort(array, 0, array.length - 1);
-
-        System.out.println("\n");
-
-        System.out.println("After Sorting:");
-
-        for (int number : array) {
-            System.out.print(number + " ");
-        }
+        System.out.println("After Sorting:  " + Arrays.toString(array));
     }
 }
