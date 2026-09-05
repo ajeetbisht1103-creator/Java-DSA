@@ -10,8 +10,10 @@
  * Time Complexity: O(N) - Three linear array reversals.
  * Space Complexity: O(1) - Modifies array in-place without extra memory.
  */
-class Solution {
-    public void rotate(int[] nums, int k) {
+
+public class RotateArrayByKPlaces {
+
+    public static void rotate(int[] nums, int k) {
         if (nums == null || nums.length <= 1) {
             return;
         }
@@ -31,7 +33,7 @@ class Solution {
         reverse(nums, k, n - 1);
     }
 
-    private void reverse(int[] nums, int start, int end) {
+    private static void reverse(int[] nums, int start, int end) {
         while (start < end) {
             int temp = nums[start];
             nums[start] = nums[end];
@@ -40,19 +42,15 @@ class Solution {
             end--;
         }
     }
-}
 
-public class RotateArrayByKPlaces {
     public static void main(String[] args) {
-        Solution solver = new Solution();
-
         int[] arr = {1, 2, 3, 4, 5, 6, 7};
         int k = 3;
 
         System.out.print("Original Array: ");
         printArray(arr);
 
-        solver.rotate(arr, k);
+        rotate(arr, k);
 
         System.out.print("Right Rotated Array by " + k + " places: ");
         printArray(arr);

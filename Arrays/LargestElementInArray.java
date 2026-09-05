@@ -5,17 +5,11 @@
  * Find the largest element present in a given array.
  *
  * Example:
- * Input:
- * {0, 1, 7, 77, 88, 41, 101, 100, 108}
+ * Input:  {0, 1, 7, 77, 88, 41, 101, 100, 108}
+ * Output: 108
  *
- * Output:
- * 108
- *
- * Time Complexity:
- * O(N)
- *
- * Space Complexity:
- * O(1)
+ * Time Complexity:  O(N)
+ * Space Complexity: O(1)
  */
 
 public class LargestElementInArray {
@@ -24,11 +18,13 @@ public class LargestElementInArray {
      * Returns the largest element in the array.
      */
     public static int findLargestElement(int[] array) {
+        if (array == null || array.length == 0) {
+            throw new IllegalArgumentException("Array must not be null or empty.");
+        }
 
         int maximum = array[0];
 
         for (int index = 1; index < array.length; index++) {
-
             if (array[index] > maximum) {
                 maximum = array[index];
             }
@@ -38,7 +34,6 @@ public class LargestElementInArray {
     }
 
     public static void main(String[] args) {
-
         int[] array = {0, 1, 7, 77, 88, 41, 101, 100, 108};
 
         System.out.println("The largest element is: " + findLargestElement(array));

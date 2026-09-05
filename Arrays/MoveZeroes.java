@@ -6,8 +6,10 @@
  * Time Complexity: O(N) - Two passes at most.
  * Space Complexity: O(1) - Constant auxiliary space.
  */
-class Solution {
-    public void moveZeroes(int[] nums) {
+
+public class MoveZeroes {
+
+    public static void moveZeroes(int[] nums) {
         if (nums == null || nums.length <= 1) {
             return;
         }
@@ -23,7 +25,7 @@ class Solution {
             }
         }
 
-        // If no zeroes are found, the array is already processed
+        // If no zeroes are found, array requires no operations
         if (j == -1) {
             return;
         }
@@ -38,18 +40,14 @@ class Solution {
             }
         }
     }
-}
 
-public class MoveZeroes {
     public static void main(String[] args) {
-        Solution solver = new Solution();
-
         int[] nums = {0, 1, 0, 3, 12};
 
         System.out.print("Original Array: ");
         printArray(nums);
 
-        solver.moveZeroes(nums);
+        moveZeroes(nums);
 
         System.out.print("After Moving Zeroes: ");
         printArray(nums);

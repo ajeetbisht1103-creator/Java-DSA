@@ -7,10 +7,12 @@ import java.util.List;
  * The union of two arrays contains distinct elements from both arrays in sorted order.
  *
  * Time Complexity: O(N + M) - Single pass through both arrays.
- * Space Complexity: O(N + M) - Space required to return the output array list.
+ * Space Complexity: O(N + M) - Space required for output list.
  */
-class Solution {
-    public List<Integer> findUnion(int[] arr1, int[] arr2) {
+
+public class UnionOfSortedArrays {
+
+    public static List<Integer> findUnion(int[] arr1, int[] arr2) {
         List<Integer> union = new ArrayList<>();
         int i = 0, j = 0;
         int n = arr1.length;
@@ -52,16 +54,12 @@ class Solution {
 
         return union;
     }
-}
 
-public class UnionOfSortedArrays {
     public static void main(String[] args) {
-        Solution sol = new Solution();
-
         int[] arr1 = {1, 2, 3, 4, 5, 6, 6};
         int[] arr2 = {3, 4, 5, 5, 6, 7, 9};
 
-        List<Integer> result = sol.findUnion(arr1, arr2);
+        List<Integer> result = findUnion(arr1, arr2);
 
         System.out.print("Union of Arrays: ");
         for (int num : result) {

@@ -59,4 +59,4 @@ public class SingleNumber {
         System.out.println("Better Approach Output: " + singleNumberBetter(arr));
         System.out.println("Optimal Approach Output: " + singleNumber(arr));
     }
-}git pul
+}

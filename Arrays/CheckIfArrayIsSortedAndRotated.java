@@ -6,6 +6,7 @@
  * Time Complexity: O(N) - Single pass through the array.
  * Space Complexity: O(1) - Constant auxiliary space.
  */
+
 public class CheckIfArrayIsSortedAndRotated {
 
     public static boolean check(int[] nums) {
@@ -17,9 +18,12 @@ public class CheckIfArrayIsSortedAndRotated {
         int countBreaks = 0;
 
         for (int i = 0; i < n; i++) {
+            // Compare current element with the next element (wraps around using modulo)
             if (nums[i] > nums[(i + 1) % n]) {
                 countBreaks++;
             }
+            
+            // A valid sorted and rotated array can have at most ONE break point
             if (countBreaks > 1) {
                 return false;
             }

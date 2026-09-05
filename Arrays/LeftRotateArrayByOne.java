@@ -4,6 +4,7 @@
  * Time Complexity: O(N) - Single traversal to shift elements.
  * Space Complexity: O(1) - Modifies the array in-place using a single temp variable.
  */
+
 public class LeftRotateArrayByOne {
 
     public static void leftRotateByOne(int[] arr) {
