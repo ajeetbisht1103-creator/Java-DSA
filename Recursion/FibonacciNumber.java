@@ -4,26 +4,21 @@
  * Description:
  * Find the nth Fibonacci number using recursion.
  *
- * Fibonacci Series:
- * 0, 1, 1, 2, 3, 5, 8, 13, ...
- *
- * Formula:
- * F(n) = F(n - 1) + F(n - 2)
- *
  * Example:
- * Input:
- * n = 6
- *
- * Output:
- * 8
+ * Input:  n = 6
+ * Output: 8
  *
  * Time Complexity : O(2^N)
- * Space Complexity: O(N)   // Recursive call stack
+ * Space Complexity: O(N) - Recursive call stack
  */
 
 public class FibonacciNumber {
 
-    static int fibonacci(int number) {
+    public static int fibonacci(int number) {
+        // Guard against negative inputs
+        if (number < 0) {
+            return -1;
+        }
 
         // Base Case
         if (number <= 1) {
@@ -31,16 +26,18 @@ public class FibonacciNumber {
         }
 
         // Recursive Calls
-        int last = fibonacci(number - 1);
-        int secondLast = fibonacci(number - 2);
-
-        return last + secondLast;
+        return fibonacci(number - 1) + fibonacci(number - 2);
     }
 
     public static void main(String[] args) {
-
         int number = 6;
 
-        System.out.println("The " + number + "th Fibonacci number is: " + fibonacci(number));
+        int result = fibonacci(number);
+
+        if (result == -1) {
+            System.out.println("Invalid input. Fibonacci is undefined for negative numbers.");
+        } else {
+            System.out.println("The " + number + "th Fibonacci number is: " + result);
+        }
     }
 }

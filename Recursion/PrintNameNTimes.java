@@ -17,28 +17,34 @@
  * Sam
  *
  * Time Complexity : O(N)
- * Space Complexity: O(N)   // Recursive call stack
+ * Space Complexity: O(N) - Recursive call stack
  */
 
 public class PrintNameNTimes {
 
-    static void printName(int currentCount, int totalTimes) {
+    // Public API entry point
+    public static void printName(String name, int totalTimes) {
+        if (totalTimes <= 0 || name == null) {
+            return;
+        }
+        printNameHelper(name, 1, totalTimes);
+    }
 
-        // Base Case
+    // Helper recursive method
+    private static void printNameHelper(String name, int currentCount, int totalTimes) {
         if (currentCount > totalTimes) {
             return;
         }
 
-        System.out.println("Sam");
+        System.out.println(name);
 
-        // Recursive Call
-        printName(currentCount + 1, totalTimes);
+        printNameHelper(name, currentCount + 1, totalTimes);
     }
 
     public static void main(String[] args) {
-
+        String name = "Sam";
         int totalTimes = 5;
 
-        printName(1, totalTimes);
+        printName(name, totalTimes);
     }
 }

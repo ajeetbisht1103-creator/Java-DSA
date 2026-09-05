@@ -5,47 +5,45 @@ import java.util.Scanner;
  *
  * Description:
  * Check whether a given string is a palindrome using recursion.
- * A palindrome is a string that reads the same forwards and backwards.
  *
  * Example:
- * Input:
- * madam
- *
- * Output:
- * true
+ * Input:  madam
+ * Output: true
  *
  * Time Complexity : O(N)
- * Space Complexity: O(N)   // Recursive call stack
+ * Space Complexity: O(N) - Recursive call stack
  */
 
 public class CheckPalindrome {
 
-    static boolean isPalindrome(int leftIndex, int rightIndex, String text) {
+    // Public API entry point
+    public static boolean isPalindrome(String text) {
+        if (text == null) {
+            return false;
+        }
+        return isPalindromeHelper(0, text.length() - 1, text);
+    }
 
-        // Base Case
+    // Recursive helper method
+    private static boolean isPalindromeHelper(int leftIndex, int rightIndex, String text) {
         if (leftIndex >= rightIndex) {
             return true;
         }
 
-        // Compare characters from both ends
         if (text.charAt(leftIndex) != text.charAt(rightIndex)) {
             return false;
         }
 
-        // Recursive Call
-        return isPalindrome(leftIndex + 1, rightIndex - 1, text);
+        return isPalindromeHelper(leftIndex + 1, rightIndex - 1, text);
     }
 
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter a string: ");
-        String input = scanner.next().toLowerCase();
-
-        boolean result = isPalindrome(0, input.length() - 1, input);
-
-        System.out.println(result);
+        if (scanner.hasNextLine()) {
+            String input = scanner.nextLine().trim().toLowerCase();
+            System.out.println(isPalindrome(input));
+        }
 
         scanner.close();
     }
