@@ -2,39 +2,34 @@
  * Problem: GCD (Greatest Common Divisor) / HCF (Highest Common Factor)
  *
  * Description:
- * Find the Greatest Common Divisor (GCD) of two numbers
- * by checking common factors from the largest to the smallest.
+ * Find the Greatest Common Divisor (GCD) of two numbers using the Euclidean Algorithm.
  *
  * Example:
- * Input:
- * 20 40
+ * Input:  20 40
+ * Output: 20
  *
- * Output:
- * 20
- *
- * Time Complexity : O(min(N, M))
+ * Time Complexity:  O(log(min(A, B)))
  * Space Complexity: O(1)
  */
 
 public class GCDorHCF {
 
-    static int findGCD(int firstNumber, int secondNumber) {
+    public static int findGCD(int firstNumber, int secondNumber) {
+        firstNumber = Math.abs(firstNumber);
+        secondNumber = Math.abs(secondNumber);
 
-        int gcd = 1;
-
-        for (int divisor = Math.min(firstNumber, secondNumber); divisor >= 1; divisor--) {
-
-            if (firstNumber % divisor == 0 && secondNumber % divisor == 0) {
-                gcd = divisor;
-                break;
+        while (firstNumber > 0 && secondNumber > 0) {
+            if (firstNumber > secondNumber) {
+                firstNumber %= secondNumber;
+            } else {
+                secondNumber %= firstNumber;
             }
         }
 
-        return gcd;
+        return (firstNumber == 0) ? secondNumber : firstNumber;
     }
 
     public static void main(String[] args) {
-
         int firstNumber = 20;
         int secondNumber = 40;
 

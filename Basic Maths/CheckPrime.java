@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 /**
  * Problem: Check Prime Number
  *
@@ -8,34 +6,30 @@ import java.util.ArrayList;
  * A prime number has exactly two factors: 1 and itself.
  *
  * Example:
- * Input:
- * 13
+ * Input:  13
+ * Output: Prime Number
  *
- * Output:
- * Prime Number
- *
- * Time Complexity : O(N)
- * Space Complexity: O(N)
+ * Time Complexity:  O(sqrt(N))
+ * Space Complexity: O(1)
  */
 
 public class CheckPrime {
 
-    static boolean isPrime(int number) {
+    public static boolean isPrime(int number) {
+        if (number <= 1) {
+            return false;
+        }
 
-        ArrayList<Integer> divisors = new ArrayList<>();
-
-        for (int divisor = 1; divisor <= number; divisor++) {
-
+        for (int divisor = 2; divisor * divisor <= number; divisor++) {
             if (number % divisor == 0) {
-                divisors.add(divisor);
+                return false;
             }
         }
 
-        return divisors.size() == 2;
+        return true;
     }
 
     public static void main(String[] args) {
-
         int number = 13;
 
         if (isPrime(number)) {
