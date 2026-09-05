@@ -9,9 +9,7 @@ import java.util.Map;
  * and determine the elements with the highest and lowest frequencies.
  *
  * Example:
- * Input:
- * {10, 5, 10, 15, 10, 5}
- *
+ * Input:  {10, 5, 10, 15, 10, 5}
  * Output:
  * The highest frequency element is: 10
  * The lowest frequency element is: 15
@@ -22,26 +20,25 @@ import java.util.Map;
 
 public class HighestLowestFrequency {
 
-    public void findFrequency(int[] numbers, int size) {
+    public static void findFrequency(int[] numbers, int size) {
+        if (numbers == null || size == 0) {
+            System.out.println("Array is empty.");
+            return;
+        }
 
-        // Stores each element and its frequency
         Map<Integer, Integer> frequencyMap = new HashMap<>();
 
-        // Count frequencies
         for (int index = 0; index < size; index++) {
-            frequencyMap.put(numbers[index],
-                    frequencyMap.getOrDefault(numbers[index], 0) + 1);
+            frequencyMap.put(numbers[index], frequencyMap.getOrDefault(numbers[index], 0) + 1);
         }
 
         int maximumFrequency = 0;
-        int minimumFrequency = size;
+        int minimumFrequency = Integer.MAX_VALUE;
 
         int highestFrequencyElement = 0;
         int lowestFrequencyElement = 0;
 
-        // Find highest and lowest frequency elements
         for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
-
             int currentElement = entry.getKey();
             int currentFrequency = entry.getValue();
 
@@ -56,17 +53,12 @@ public class HighestLowestFrequency {
             }
         }
 
-        // Display results
         System.out.println("The highest frequency element is: " + highestFrequencyElement);
         System.out.println("The lowest frequency element is: " + lowestFrequencyElement);
     }
 
     public static void main(String[] args) {
-
-        HighestLowestFrequency solution = new HighestLowestFrequency();
-
         int[] numbers = {10, 5, 10, 15, 10, 5};
-
-        solution.findFrequency(numbers, numbers.length);
+        findFrequency(numbers, numbers.length);
     }
 }

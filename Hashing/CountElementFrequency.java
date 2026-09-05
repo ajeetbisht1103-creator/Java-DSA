@@ -1,7 +1,5 @@
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -16,73 +14,60 @@ import java.util.Scanner;
  * 5
  * 1 2 1 3 2
  * 3
- * 1
- * 2
- * 4
+ * 1 2 4
  *
  * Output:
  * 2
  * 2
- * null
- *
- * Note:
- * If the queried element is not present in the array,
- * HashMap.get() returns null.
+ * 0
  *
  * Time Complexity:
- * Building HashMap : O(N)
- * Answering Queries: O(Q)
+ * Building HashMap : O(N) average
+ * Answering Queries: O(Q) average
  * Overall          : O(N + Q)
  *
- * Space Complexity:
- * O(N)
+ * Space Complexity: O(N)
  */
 
 public class CountElementFrequency {
 
-    public static void main(String[] args) throws Exception {
+    public static Map<Integer, Integer> buildFrequencyMap(int[] numbers) {
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
+        if (numbers == null) {
+            return frequencyMap;
+        }
 
-        // Redirect input and output for local testing
-        System.setIn(new FileInputStream("input.txt"));
-        System.setOut(new PrintStream(new FileOutputStream("output.txt")));
+        for (int number : numbers) {
+            frequencyMap.put(number, frequencyMap.getOrDefault(number, 0) + 1);
+        }
 
+        return frequencyMap;
+    }
+
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Read the size of the array
-        int size = scanner.nextInt();
+        if (!scanner.hasNextInt()) {
+            scanner.close();
+            return;
+        }
 
+        int size = scanner.nextInt();
         int[] numbers = new int[size];
 
-        // Input array elements
         for (int index = 0; index < size; index++) {
             numbers[index] = scanner.nextInt();
         }
 
-        // HashMap to store frequency of each element
-        HashMap<Integer, Integer> frequencyMap = new HashMap<>();
+        Map<Integer, Integer> frequencyMap = buildFrequencyMap(numbers);
 
-        for (int index = 0; index < size; index++) {
+        if (scanner.hasNextInt()) {
+            int queries = scanner.nextInt();
 
-            int currentNumber = numbers[index];
-            int frequency = 0;
-
-            if (frequencyMap.containsKey(currentNumber)) {
-                frequency = frequencyMap.get(currentNumber);
+            while (queries-- > 0 && scanner.hasNextInt()) {
+                int queryNumber = scanner.nextInt();
+                System.out.println(frequencyMap.getOrDefault(queryNumber, 0));
             }
-
-            frequency++;
-
-            frequencyMap.put(currentNumber, frequency);
-        }
-
-        // Read number of queries
-        int queries = scanner.nextInt();
-
-        while (queries-- > 0) {
-
-            int number = scanner.nextInt();
-
-            System.out.println(frequencyMap.get(number));
         }
 
         scanner.close();
