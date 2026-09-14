@@ -43,6 +43,7 @@ Java-DSA
 ## 🛠 IDE
 
 - IntelliJ IDEA Community Edition
+- Vs Code
 
 ---
 
